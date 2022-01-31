@@ -31,7 +31,7 @@ const development = merge(
       {
         loader: 'postcss-loader',
         options: {
-          config: {
+          postcssOptions: {
             path: PATHS.POSTCSS,
           },
         },

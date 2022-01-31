@@ -1,5 +1,8 @@
-const { merge } = require('webpack-merge');
+/* eslint-disable no-undef */
+require('dotenv').config();
 const path = require('path');
+const { merge } = require('webpack-merge');
+const { DefinePlugin } = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const production = require('./webpack.config.prod');
@@ -38,6 +41,7 @@ const common = {
       cleanAfterEveryBuildPatterns: pathsToClean,
       ...cleanOptions,
     }),
+    new DefinePlugin({ ENV_API_KEY: JSON.stringify(process.env.API_KEY) }),
   ],
   optimization: {
     chunkIds: 'named',
