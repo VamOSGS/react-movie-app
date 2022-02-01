@@ -7,6 +7,7 @@ import List from '../List';
 import Header from '../Header';
 import MainMovie from '../MainMovie';
 import Menu from '../Menu';
+import Footer from '../Footer';
 
 function App() {
   const initState = {
@@ -24,6 +25,7 @@ function App() {
         <MainMovie />
         <Menu />
         <List />
+        <Footer />
       </div>
     </StateProvider>
   );
