@@ -6,7 +6,7 @@ import './MovieCardStyles.less';
 function MovieCard({ date, title, bio, imgPath }) {
   return (
     <li className="movieCard">
-      <img src={IMAGE_API(imgPath, 300)} alt={title} />
+      <img src={IMAGE_API(imgPath, 200)} alt={title} />
       <h3>
         {title}({date.split('').slice(0, 4)})
       </h3>

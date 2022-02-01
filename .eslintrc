@@ -4,7 +4,8 @@
   "globals": {
     "document": true,
     "window": true,
-    "fetch": true
+    "fetch": true,
+    "Math": true
   },
   "rules": {
     "no-unused-vars": "warn",

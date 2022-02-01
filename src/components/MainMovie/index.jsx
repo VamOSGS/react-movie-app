@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { POPULAR_API, IMAGE_API } from '../../api';
+import { useStateValue } from '../../context';
 
 function MainMovie() {
   const [movie, setMovie] = useState(null);
+  const [state, dispatch] = useStateValue();
   const getRandom = (min, max) =>
     Math.floor((max - min + 1) * Math.random()) + min;
 
@@ -11,6 +13,7 @@ function MainMovie() {
       .then((res) => res.json())
       .then((data) => {
         setMovie(data.results[getRandom(0, 20)]);
+        dispatch({ type: 'SET_POPULAR', payload: data.results });
       });
   }, []);
 

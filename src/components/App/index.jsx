@@ -9,7 +9,13 @@ import MainMovie from '../MainMovie';
 import Menu from '../Menu';
 
 function App() {
-  const initState = {};
+  const initState = {
+    trending: [],
+    upcoming: [],
+    nowPlaying: [],
+    topRated: [],
+    active: 'Trending',
+  };
 
   return (
     <StateProvider initialState={initState}>

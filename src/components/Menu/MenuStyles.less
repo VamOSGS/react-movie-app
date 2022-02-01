@@ -1,0 +1,21 @@
+.menu {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  user-select: none;
+  li {
+    color: #a0a0a0;
+    margin: 0 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    &.active {
+      color: red;
+      font-size: 35px;
+      font-weight: 500;
+    }
+  }
+}
