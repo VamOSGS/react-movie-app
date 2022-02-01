@@ -1,8 +1,8 @@
-/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-undef */
 import React, { useEffect, useState } from 'react';
 import { useStateValue } from '../../context';
-import { TRENDING_API, IMAGE_API } from '../../api';
+import { TRENDING_API  } from '../../api';
+import MovieCard from '../MovieCard';
 
 function List() {
   const [list, setList] = useState([]);
@@ -18,16 +18,13 @@ function List() {
   return list.length ? (
     <ul>
       {list.map((item, key) => (
-        <li key={key}>
-          <img
-            src={IMAGE_API(item.poster_path, 300)}
-            alt={item.title}
-          />
-          <h3>
-            {item.title} ({item.release_date.split('').slice(0, 4)})
-          </h3>
-          <p>{item.overview}</p>
-        </li>
+        <MovieCard
+          key={key}
+          title={item.title}
+          date={item.release_date}
+          imgPath={item.poster_path}
+          bio={item.overview}
+        />
       ))}
     </ul>
   ) : (

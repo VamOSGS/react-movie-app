@@ -7,5 +7,7 @@ const useApi = (options) =>
 
 export const TRENDING_API = useApi('trending/movie/week');
 
+export const POPULAR_API = useApi('movie/popular');
+
 export const IMAGE_API = (path, width = 200) =>
   `https://image.tmdb.org/t/p/w${width}${path}`;
