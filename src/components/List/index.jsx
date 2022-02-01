@@ -10,6 +10,8 @@ import {
 } from '../../api';
 import MovieCard from '../MovieCard';
 
+import './ListStyles.less';
+
 function List() {
   const [list, setList] = useState([]);
   const [state, dispatch] = useStateValue();
@@ -72,7 +74,7 @@ function List() {
   }, [state.active]);
 
   return (
-    <div>
+    <div className='list'>
       {list.length ? (
         <ul>
           {list.map((item, key) => (
@@ -82,6 +84,8 @@ function List() {
               date={item.release_date}
               imgPath={item.poster_path}
               bio={item.overview}
+              rating={item.vote_average}
+              lang={item.original_language}
             />
           ))}
         </ul>

@@ -1,3 +1,25 @@
 .movieCard {
-  background: rgb(231, 191, 191);
+  margin: 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  img {
+    width: 50%;
+    border-radius: 20px;
+  }
+  div {
+    width: 50%;
+    * {
+      margin: 0;
+    }
+    span {
+      text-transform: uppercase;
+    }
+    .year, p {
+      color: #6d7784;
+    }
+  }
 }
