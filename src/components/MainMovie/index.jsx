@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { POPULAR_API, IMAGE_API } from '../../api';
 import { useStateValue } from '../../context';
 
+import './MainMovie.less';
+
 function MainMovie() {
   const [movie, setMovie] = useState(null);
   const [state, dispatch] = useStateValue();
@@ -21,12 +23,13 @@ function MainMovie() {
     <div className="mainMovie">
       {movie ? (
         <>
-          <h1>{movie.title}</h1>
-          <p>{movie.overview}</p>
+          <div className="text">
+            <h1>{movie.title}</h1>
+            <p>{movie.overview}</p>
+          </div>
           <img
             src={IMAGE_API(movie.backdrop_path, '1920_and_h800_multi_faces')}
             alt={movie.title}
-            width="1200px"
           />
         </>
       ) : (
