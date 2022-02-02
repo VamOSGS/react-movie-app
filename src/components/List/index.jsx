@@ -32,7 +32,6 @@ function List() {
       }
       case 'Upcoming': {
         if (!state.upcoming.length) {
-          console.log('Upcoming');
           fetch(UPCOMING_API)
             .then((r) => r.json())
             .then((data) => {
@@ -45,7 +44,6 @@ function List() {
       }
       case 'Now Playing': {
         if (!state.nowPlaying.length) {
-          console.log('now playingr');
           fetch(NOW_PLAYING_API)
             .then((r) => r.json())
             .then((data) => {
@@ -58,7 +56,6 @@ function List() {
       }
       case 'Top Rated': {
         if (!state.topRated.length) {
-          console.log('Top Rated');
           fetch(TOP_RATED_API)
             .then((r) => r.json())
             .then((data) => {
