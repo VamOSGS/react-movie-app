@@ -17,14 +17,20 @@
         display: none;
       }
     }
+    &:hover {
+      
+    }
+    &::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: red;
+    }
   }
   .sIcon {
     position: absolute;
     margin: 5px;
     z-index: -1;
-    &:focus-within {
-      display: none;
-    }
   }
   &.focused {
     input {

@@ -3,15 +3,22 @@
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  background: rgba(202, 202, 202, 0.329);
   z-index: 3;
   width: 100vw;
-
+  transition: 0.5s;
   h1 {
     font-family: 'Leckerli One', cursive;
     font-weight: normal;
     margin: 1% 0 1% 5%;
-    color: red;
+    color: crimson;
     user-select: none;
+    transition: 0.2s;
+  }
+  &.true {
+    background: rgba(202, 202, 202, 0.329);
+    h1 {
+      color: red;
+      filter: drop-shadow(0 0 0.75rem crimson);
+    }
   }
 }

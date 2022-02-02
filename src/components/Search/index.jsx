@@ -39,7 +39,9 @@ function Search() {
         <ul className="results">
           {search.map((item, k) => (
             <li key={k}>
-              <img src={IMAGE_API(item.poster_path)} alt="" />
+              {item.poster_path && (
+                <img src={IMAGE_API(item.poster_path)} alt="" />
+              )}
               <h3>{item.title}</h3>
             </li>
           ))}
