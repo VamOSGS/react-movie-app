@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer>
       <p>
-        using:
+        database:
         <a rel="noreferrer" target="_blank" href="https://www.themoviedb.org/">
           THE MOVIE DB
         </a>
