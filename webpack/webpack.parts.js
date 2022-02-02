@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 /* eslint-enable */
 require('dotenv').config();
 
@@ -27,24 +26,23 @@ exports.buildSetup = (env) => ({
         env === 'development'
           ? false
           : {
-            removeAttributeQuotes: true,
-            collapseWhitespace: true,
-            html5: true,
-            removeComments: true,
-            removeEmptyAttributes: true,
-            removeRedundantAttributes: true,
-            useShortDoctype: true,
-            removeStyleLinkTypeAttributes: true,
-            keepClosingSlash: true,
-            minifyJS: true,
-            minifyCSS: true,
-            minifyURLs: true,
-          },
+              removeAttributeQuotes: true,
+              collapseWhitespace: true,
+              html5: true,
+              removeComments: true,
+              removeEmptyAttributes: true,
+              removeRedundantAttributes: true,
+              useShortDoctype: true,
+              removeStyleLinkTypeAttributes: true,
+              keepClosingSlash: true,
+              minifyJS: true,
+              minifyCSS: true,
+              minifyURLs: true,
+            },
     }),
   ],
 });
 
-exports.extractLess = new ExtractTextPlugin('style.[hash].css');
 
 exports.styleLoader = (options) => ({
   module: {
