@@ -8,6 +8,7 @@ import {
   TOP_RATED_API,
   NOW_PLAYING_API,
 } from '../../api';
+import Loader from '../Loader';
 import MovieCard from '../MovieCard';
 
 import './ListStyles.less';
@@ -74,7 +75,7 @@ function List() {
   }, [state.active]);
 
   return (
-    <div className='list'>
+    <div className="list">
       {list.length ? (
         <ul>
           {list.map((item, key) => (
@@ -90,7 +91,7 @@ function List() {
           ))}
         </ul>
       ) : (
-        <h3>Loading...</h3>
+        <Loader />
       )}
     </div>
   );

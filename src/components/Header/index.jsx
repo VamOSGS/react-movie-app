@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './HeaderStyles.less';
 import Search from '../Search';
-
 function Header() {
   const [scrolled, setScroll] = useState(false);
   useEffect(() => {

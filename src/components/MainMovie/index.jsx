@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { POPULAR_API, IMAGE_API } from '../../api';
 import { useStateValue } from '../../context';
+import Loader from '../Loader';
 
 import './MainMovie.less';
 
@@ -33,7 +34,7 @@ function MainMovie() {
           />
         </>
       ) : (
-        <p>Loading...</p>
+        <Loader />
       )}
     </div>
   );

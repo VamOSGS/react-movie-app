@@ -35,7 +35,12 @@ const common = {
   },
   plugins: [
     new CopyWebpackPlugin({
-      patterns: [{ from: 'src/assets/*', to: 'assets/' }],
+      patterns: [
+        {
+          from: 'src/assets/favicon.ico',
+          to: 'assets/favicon.ico',
+        },
+      ],
     }),
     new CleanWebpackPlugin({
       cleanAfterEveryBuildPatterns: pathsToClean,
