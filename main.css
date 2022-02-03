@@ -10,38 +10,38 @@
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/quicksand/v24/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkKEo18E.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/quicksand/v28/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkKEo18E.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/quicksand/v24/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkP8o18E.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/quicksand/v28/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkP8o18E.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/quicksand/v24/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkM0o18E.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/quicksand/v28/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkM0o18E.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/quicksand/v24/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv18E.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/quicksand/v28/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv18E.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/quicksand/v24/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkBgv18E.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/quicksand/v28/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkBgv18E.ttf) format('truetype');
 }
 body {
-  background: #181D23;
+  background: #181d23;
   color: white;
   font-family: 'Quicksand', sans-serif;
 }
@@ -83,9 +83,18 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
   width: fit-content;
 }
+.movieCard * {
+  cursor: pointer;
+}
 .movieCard img {
   width: 50%;
   border-radius: 20px;
+  transition: 0.3s;
+  margin-bottom: 5px;
+}
+.movieCard img:hover {
+  border-radius: 0;
+  box-shadow: 0 0 0 3px red;
 }
 .movieCard div {
   width: 50%;
@@ -200,6 +209,73 @@ body::-webkit-scrollbar-thumb {
 .results::-webkit-scrollbar-thumb {
   background-color: rgba(169, 169, 169, 0.287);
   outline: 1px solid rgba(112, 128, 144, 0.239);
+}
+
+.popup {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  width: 100vw;
+  height: 100vh;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+}
+.popup .content {
+  width: 70%;
+  height: 70%;
+  background: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-blend-mode: saturation;
+}
+.popup .content > div {
+  display: flex;
+}
+.popup .content .company {
+  top: 0;
+  right: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  margin: 25px;
+}
+.popup .content .company img {
+  filter: drop-shadow(0 0 5px red);
+  width: 10%;
+}
+.popup .content .text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.popup .content .text ul {
+  display: flex;
+}
+.popup .content .text ul li {
+  margin: 0 15px;
+  text-shadow: 3px 5px 2px #474747;
+}
+.popup .content .text h1 {
+  font-size: 5em;
+  margin: 5% 10%;
+  text-shadow: 1px 0px 1px #cccccc, 0px 1px 1px #eeeeee, 2px 1px 1px #cccccc, 1px 2px 1px #eeeeee, 3px 2px 1px #cccccc, 2px 3px 1px #eeeeee, 4px 3px 1px #cccccc, 3px 4px 1px #eeeeee, 5px 4px 1px #cccccc, 4px 5px 1px #eeeeee, 6px 5px 1px #cccccc, 5px 6px 1px #eeeeee, 7px 6px 1px #cccccc;
+}
+.popup .content .text p {
+  width: 60%;
+  text-shadow: 3px 5px 2px #474747;
+}
+.popup .closeText {
+  position: absolute;
+  top: 10%;
+  opacity: 0.6;
+}
+.popup.close {
+  display: none;
 }
 
 .mainMovie {
