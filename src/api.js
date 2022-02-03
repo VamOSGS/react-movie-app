@@ -11,6 +11,7 @@ export const TOP_RATED_API = useApi('movie/top_rated');
 export const UPCOMING_API = useApi('movie/upcoming');
 export const NOW_PLAYING_API = useApi('movie/now_playing');
 
+export const getMovie = (id) => useApi(`movie/${id}`);
 export const searchApi = (q) => `${useApi('search/movie')}&query=${q}`;
 
 export const IMAGE_API = (path, width = 200) =>

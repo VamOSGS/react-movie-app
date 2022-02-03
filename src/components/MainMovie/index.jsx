@@ -15,7 +15,7 @@ function MainMovie() {
     fetch(POPULAR_API)
       .then((res) => res.json())
       .then((data) => {
-        setMovie(data.results[getRandom(0, 20)]);
+        setMovie(data.results[getRandom(0, 19)]);
         dispatch({ type: 'SET_POPULAR', payload: data.results });
       });
   }, []);

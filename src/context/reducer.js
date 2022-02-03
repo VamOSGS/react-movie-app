@@ -25,6 +25,16 @@ export default (state, action) => {
         ...state,
         active: action.payload,
       };
+    case 'TOGGLE_POPUP':
+      return {
+        ...state,
+        popup: action.payload,
+      };
+    case 'UPDATE_POPUP':
+      return {
+        ...state,
+        popupId: action.payload,
+      };
     default:
       return state;
   }

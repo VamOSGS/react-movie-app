@@ -16,6 +16,7 @@ function App() {
     nowPlaying: [],
     topRated: [],
     active: 'Trending',
+    popup: false,
   };
 
   return (

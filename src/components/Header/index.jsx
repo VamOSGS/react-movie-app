@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useStateValue } from '../../context';
 import './HeaderStyles.less';
 import Search from '../Search';
+import PopUp from '../PopUp';
+
 function Header() {
+  const [store, dispatch] = useStateValue();
   const [scrolled, setScroll] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
@@ -16,10 +20,13 @@ function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   return (
-    <header className={`header ${scrolled}`}>
-      <h1>Movieer</h1>
-      <Search />
-    </header>
+    <>
+      {store.popup && <PopUp />}
+      <header className={`header ${scrolled}`}>
+        <h1>Movieer</h1>
+        <Search />
+      </header>
+    </>
   );
 }
 

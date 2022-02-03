@@ -84,6 +84,7 @@ function List() {
               bio={item.overview}
               rating={item.vote_average}
               lang={item.original_language}
+              id={item.id}
             />
           ))}
         </ul>
