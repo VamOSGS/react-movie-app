@@ -160,6 +160,9 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   margin-right: 5%;
 }
+.search:hover svg {
+  stroke: rgba(121, 121, 121, 0.37);
+}
 .search input {
   cursor: pointer;
   height: 20px;
@@ -187,12 +190,15 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   margin: 5px;
   z-index: -1;
+  stroke: white;
+  transition: stroke 0.3s;
 }
 .search.focused input {
   cursor: text;
 }
 .search.focused .sIcon {
   transform: translateX(-40px);
+  stroke: red !important;
 }
 .results {
   position: absolute;
