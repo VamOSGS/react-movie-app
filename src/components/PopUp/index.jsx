@@ -35,10 +35,10 @@ function PopUp() {
         <div
           className="content"
           style={{
-            background: `url(${IMAGE_API(
+            backgroundImage: `url(${IMAGE_API(
               state.backdrop_path,
               '1920_and_h800_multi_faces',
-            )})`,
+            )}) `,
           }}
         >
           <div>

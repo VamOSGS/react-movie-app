@@ -16,7 +16,20 @@
       font-size: 35px;
       font-weight: 500;
       filter: drop-shadow(0 0 0.75rem crimson);
-
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .menu {
+    margin: 30px auto;
+    width: 80%;
+    flex-wrap: wrap;
+    li {
+      margin: 5px 15px;
+      font-size: 18px;
+      &.active {
+        font-size: 25px;
+      }
     }
   }
 }

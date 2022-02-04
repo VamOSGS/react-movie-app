@@ -9,6 +9,7 @@
   align-items: center;
   right: 0;
   .content {
+    
     &::after {
       content: '';
       width: 100%;
@@ -27,15 +28,17 @@
       z-index: 2;
     }
     width: 70%;
-    height: 70%;
+    min-height: 70%;
+    height: max-content;
+    padding: 2%;
     background: red;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    background-blend-mode: saturation;
     box-shadow: 7px 9px 0 0 rgb(82, 82, 82);
-
+    background-size: cover;
+    background-position: center;
     .poster {
       object-fit: cover;
       width: 25%;
@@ -93,5 +96,52 @@
   }
   &.close {
     display: none;
+  }
+}
+@media screen and (max-width: 500px) {
+  .popup {
+    .company {
+      img {
+        width: 30px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .popup {
+    .content {
+      div {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .poster {
+        width: 50%;
+      }
+      .text {
+        align-items: center;
+        ul {
+          padding: 0;
+          margin: 0;
+          font-size: 12px;
+        }
+        h1 {
+          text-align: center;
+          font-size: 25px;
+          text-shadow: none;
+        }
+        p {
+          font-size: 14px;
+          width: 80%;
+        }
+      }
+      .company {
+        right: 0;
+        margin: 10px;
+        left: unset;
+        img {
+          width: 70px;
+        }
+      }
+    }
   }
 }
