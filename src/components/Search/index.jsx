@@ -2,15 +2,22 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState, useEffect, useRef } from 'react';
 import SearchIcon from './SearchIcon';
-import { searchApi, IMAGE_API } from '../../api';
+import { searchApi, IMAGE_API, MISSING_IMG } from '../../api';
 import { useStateValue } from '../../context';
 import './SearchStyles.less';
 
 function useOutsideAlerter(ref, handler) {
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (ref.current && !ref.current.contains(event.target)) {
-        handler(false);
+    function handleClickOutside(e) {
+      if (ref.current && !ref.current.contains(e.target)) {
+        if (
+          e.target.offsetParent &&
+          e.target.offsetParent.classList[0] !== 'content'
+        ) {
+          if (e.target.offsetParent.classList[0] !== 'popup') {
+            handler(false);
+          }
+        }
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
@@ -19,13 +26,13 @@ function useOutsideAlerter(ref, handler) {
     };
   }, [ref]);
 }
-function OutsideAlerter(props) {
+function OutsideAlerter({ handler, name, children }) {
   const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef, props.handler);
+  useOutsideAlerter(wrapperRef, handler);
 
   return (
-    <div className={props.name} ref={wrapperRef}>
-      {props.children}
+    <div className={name} ref={wrapperRef}>
+      {children}
     </div>
   );
 }
@@ -79,9 +86,13 @@ function Search() {
                 handleClick(item.id);
               }}
             >
-              {item.poster_path && (
-                <img src={IMAGE_API(item.poster_path)} alt="" />
-              )}
+              <img
+                src={
+                  item.poster_path ? IMAGE_API(item.poster_path) : MISSING_IMG
+                }
+                alt={item.title}
+              />
+
               <h3>{item.title}</h3>
             </li>
           ))}

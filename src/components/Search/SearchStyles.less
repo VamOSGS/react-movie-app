@@ -15,16 +15,15 @@
     transition: 0.3s;
     width: 40px;
     padding: 10px 5px;
-    
+
     &.true {
       width: 300px;
       background: #aeaeae61;
       .sIcon {
         display: none;
-        
       }
     }
-    
+
     &::after {
       content: '';
       width: 100%;
@@ -37,8 +36,7 @@
     margin: 5px;
     z-index: -1;
     stroke: white;
-    transition: stroke  0.3s;
-    transition: box-shadow  0.3s;
+    transition: stroke 0.3s;
   }
   &.focused {
     input {
@@ -61,8 +59,15 @@
   li {
     display: flex;
     margin: 10px;
+    border-bottom: 1px solid rgb(82, 82, 82);
+    padding-bottom: 5px;
     h3 {
       margin-left: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        text-shadow: 2px 1px 0px rgb(124, 124, 124);;
+      }
     }
     img {
       width: 20%;
@@ -85,7 +90,7 @@
 @media screen and (max-width: 768px) {
   header {
     flex-direction: column;
-    .search  {
+    .search {
       margin-right: -5%;
     }
   }

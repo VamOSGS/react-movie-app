@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useEffect } from 'react';
 import { useStateValue } from '../../context';
-import { getMovie, IMAGE_API } from '../../api';
+import { getMovie, IMAGE_API, MISSING_IMG } from '../../api';
 import Loader from '../Loader';
 
 import './PopUpStyles.less';
@@ -28,7 +28,6 @@ function PopUp() {
   };
   return (
     <div
-      role="popup"
       className={`popup ${!store.popup ? 'close' : ''}`}
       onClick={(e) => handleClick(e)}
     >
@@ -37,35 +36,44 @@ function PopUp() {
         <div
           className="content"
           style={{
-            backgroundImage: `url(${IMAGE_API(
-              state.backdrop_path,
-              '1920_and_h800_multi_faces',
-            )}) `,
+            backgroundImage: `url(${
+              state.backdrop_path
+                ? IMAGE_API(state.backdrop_path, '1920_and_h800_multi_faces')
+                : ''
+            }) `,
           }}
         >
           <div>
-            <img
-              className="poster"
-              src={IMAGE_API(state.poster_path, '600_and_h900_bestv2')}
-              alt=""
-            />
-            <div className="company">
+            {state.poster_path && (
               <img
-                src={IMAGE_API(state.production_companies[0].logo_path)}
-                alt=""
+                className="poster"
+                src={IMAGE_API(state.poster_path, '600_and_h900_bestv2')}
+                alt={state.title}
               />
+            )}
+
+            <div className="company">
+              {state.production_companies[0] &&
+                state.production_companies[0].logo_path && (
+                  <img
+                    src={IMAGE_API(state.production_companies[0].logo_path)}
+                    alt={state.production_companies[0].name}
+                  />
+                )}
             </div>
             <div className="text">
               <h1>
                 {state.title} <span>({state.original_language})</span>
                 <span>{state.vote_average}</span>
               </h1>
-              <ul>
-                {state.genres.map((item, i) => (
-                  <li key={i}>{item.name}</li>
-                ))}
-              </ul>
-              <p>{state.overview}</p>
+              {state.genres && (
+                <ul>
+                  {state.genres.map((item, i) => (
+                    <li key={i}>{item.name}</li>
+                  ))}
+                </ul>
+              )}
+              <p>{state.overview ? state.overview : 'Missing description'}</p>
             </div>
           </div>
         </div>
