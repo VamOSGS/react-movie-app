@@ -9,8 +9,7 @@ function MovieCard({ date, title, bio, imgPath, lang, rating, id }) {
   const [store, dispatch] = useStateValue();
 
   const handleClick = () => {
-    dispatch({ type: 'TOGGLE_POPUP', payload: true });
-    dispatch({ type: 'UPDATE_POPUP', payload: id });
+    dispatch({ type: 'TOGGLE_POPUP', payload: { popup: true, popupId: id } });
   };
   return (
     <li className="movieCard">

@@ -16,9 +16,12 @@ function PopUp() {
       .then(setState);
   }, []);
   const handleClick = (e) => {
-    if (e.target.classList[0] == 'popup') {
+    if (e.target.classList[0] === 'popup') {
       setState(false);
-      dispatch({ type: 'TOGGLE_POPUP', payload: false });
+      dispatch({
+        type: 'TOGGLE_POPUP',
+        payload: { popup: false, popupId: null },
+      });
     }
   };
   return (
@@ -27,7 +30,7 @@ function PopUp() {
       className={`popup ${!store.popup ? 'close' : ''}`}
       onClick={(e) => handleClick(e)}
     >
-      <p className="closeText">click everywhere to close popup</p>
+      <p className="closeText">click anywhere to close popup</p>
       {state ? (
         <div
           className="content"
@@ -39,14 +42,18 @@ function PopUp() {
           }}
         >
           <div>
-            <img src={IMAGE_API(state.poster_path, 300)} alt="" />
+            <img
+              className="poster"
+              src={IMAGE_API(state.poster_path, '600_and_h900_bestv2')}
+              alt=""
+            />
             <div className="company">
               <img
                 src={IMAGE_API(state.production_companies[0].logo_path)}
                 alt=""
               />
             </div>
-            <div className='text'>
+            <div className="text">
               <h1>
                 {state.title} <span>({state.original_language})</span>
                 <span>{state.vote_average}</span>
