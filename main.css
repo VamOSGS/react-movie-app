@@ -211,9 +211,16 @@ body::-webkit-scrollbar-thumb {
 .results li {
   display: flex;
   margin: 10px;
+  border-bottom: 1px solid #525252;
+  padding-bottom: 5px;
 }
 .results li h3 {
   margin-left: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.results li h3:hover {
+  text-shadow: 2px 1px 0px #7c7c7c;
 }
 .results li img {
   width: 20%;
@@ -253,7 +260,7 @@ body::-webkit-scrollbar-thumb {
   min-height: 70%;
   height: max-content;
   padding: 2%;
-  background: red;
+  background: #1c0068;
   display: flex;
   justify-content: center;
   align-items: center;
