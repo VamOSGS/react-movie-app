@@ -1,6 +1,11 @@
 .search {
   position: relative;
   margin-right: 5%;
+  &:hover {
+    svg {
+      stroke: rgba(121, 121, 121, 0.37);
+    }
+  }
   input {
     cursor: pointer;
     height: 20px;
@@ -10,15 +15,16 @@
     transition: 0.3s;
     width: 40px;
     padding: 10px 5px;
+    
     &.true {
       width: 300px;
       background: #aeaeae61;
       .sIcon {
         display: none;
+        
       }
     }
-    &:hover {
-    }
+    
     &::after {
       content: '';
       width: 100%;
@@ -30,6 +36,9 @@
     position: absolute;
     margin: 5px;
     z-index: -1;
+    stroke: white;
+    transition: stroke  0.3s;
+    transition: box-shadow  0.3s;
   }
   &.focused {
     input {
@@ -37,6 +46,7 @@
     }
     .sIcon {
       transform: translateX(-40px);
+      stroke: red !important;
     }
   }
 }

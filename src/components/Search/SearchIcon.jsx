@@ -9,7 +9,6 @@ function SearchIcon({ stroke = 'white', fill = 'none', size = '30' }) {
       height={size}
       viewBox={`0 0 ${size} ${size}`}
       fill={fill}
-      stroke={stroke}
       strokeWidth="3"
       strokeLinecap="round"
       strokeLinejoin="round"

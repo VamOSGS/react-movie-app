@@ -11,12 +11,14 @@ function PopUp() {
   const [store, dispatch] = useStateValue();
   const [state, setState] = useState(false);
   useEffect(() => {
+    document.body.style.overflow = 'hidden';
     fetch(getMovie(store.popupId))
       .then((d) => d.json())
       .then(setState);
   }, []);
   const handleClick = (e) => {
     if (e.target.classList[0] === 'popup') {
+      document.body.style.overflow = 'auto';
       setState(false);
       dispatch({
         type: 'TOGGLE_POPUP',
