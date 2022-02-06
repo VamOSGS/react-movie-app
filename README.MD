@@ -1,4 +1,4 @@
-# Movieer
+# Movieer 🎞️
 
 DEMO: [movieer.netlify.app](movieer.netlify.app/)
 
